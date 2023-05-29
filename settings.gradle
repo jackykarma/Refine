@@ -1,0 +1,33 @@
+pluginManagement {
+    repositories {
+        google()
+        mavenCentral()
+        gradlePluginPortal()
+    }
+}
+dependencyResolutionManagement {
+    repositoriesMode.set(RepositoriesMode.FAIL_ON_PROJECT_REPOS)
+    repositories {
+        google()
+        mavenCentral()
+    }
+}
+
+rootProject.name = "AppSupport"
+
+include ':app'
+include ':foundationapi'
+include ':foundationimpl'
+include ':basebiz'
+include ':biz_lint'
+include ':biz_paging3'
+
+// 指定project与文件目录的对应关系
+project(':basebiz').projectDir = new File("./uilayer/basebiz")
+
+project(':foundationapi').projectDir = new File("./foundationlayer/foundationapi")
+project(':foundationimpl').projectDir = new File("./foundationlayer/foundationimpl")
+
+// 业务插件apk
+project(':biz_lint').projectDir = new File("./uilayer/biz_lint")
+project(':biz_paging3').projectDir = new File("./uilayer/biz_paging3")

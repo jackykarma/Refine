@@ -1,0 +1,30 @@
+plugins {
+    id 'com.android.application'
+    id 'org.jetbrains.kotlin.android'
+}
+
+apply from: "$rootDir/gradle/appcommon.gradle"
+apply from: "$rootDir/gradle/depsext.gradle"
+
+android {
+    namespace 'com.jacky.appsupport'
+
+    defaultConfig {
+        applicationId "com.jacky.appsupport"
+    }
+    buildTypes {
+        debug {
+            minifyEnabled false
+        }
+        release {
+            minifyEnabled true
+            shrinkResources true
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+    }
+    dynamicFeatures = [':biz_lint']
+}
+
+dependencies {
+    implementation project(':basebiz')
+}

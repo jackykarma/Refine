@@ -1,0 +1,23 @@
+plugins {
+    id 'com.android.dynamic-feature'
+    id 'org.jetbrains.kotlin.android'
+}
+
+apply from: "$rootDir/gradle/depsext.gradle"
+apply from: "$rootDir/gradle/appcommon.gradle"
+apply from: "$rootDir/gradle/dfmcommon.gradle"
+
+android {
+    namespace 'com.jacky.biz_paging3'
+}
+
+dependencies {
+    implementation project(':app')
+    implementation project(':basebiz')
+    // paging3库的依赖
+    implementation "androidx.paging:paging-runtime:$versions.paging"
+    testImplementation "androidx.paging:paging-common:$versions.paging"
+    implementation "androidx.paging:paging-guava:$versions.paging"
+    // optional - RxJava3 support
+    implementation "androidx.paging:paging-rxjava3:$versions.paging"
+}

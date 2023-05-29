@@ -1,0 +1,22 @@
+plugins {
+    id 'com.android.library'
+    id 'org.jetbrains.kotlin.android'
+}
+
+apply from: "$rootDir/gradle/depsext.gradle"
+apply from: "$rootDir/gradle/appcommon.gradle"
+apply from: "$rootDir/gradle/libcommon.gradle"
+
+android {
+    namespace 'com.jacky.basebiz'
+}
+
+dependencies {
+    api "androidx.core:core-ktx:${versions.xcorektx}"
+    api "androidx.appcompat:appcompat:${versions.xappcompat}"
+    api "com.google.android.material:material:${versions.googlematerrial}"
+    api "androidx.constraintlayout:constraintlayout:${versions.constrantlayout}"
+    testApi "junit:junit:${versions.junit}"
+    androidTestApi "androidx.test.ext:junit:${versions.xjunit}"
+    androidTestApi "androidx.test.espresso:espresso-core:${versions.espresso}"
+}

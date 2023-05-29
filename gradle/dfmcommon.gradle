@@ -1,0 +1,14 @@
+android {
+    buildTypes {
+        debug {
+            // minifyEnabled false
+            // shrinkResources false
+        }
+        release {
+            // Dynamic feature modules cannot set minifyEnabled to true
+            // minifyEnabled true
+            // Resource shrinking must be configured for base module.
+            // shrinkResources true
+        }
+    }
+}
