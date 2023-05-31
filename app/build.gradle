@@ -11,10 +11,16 @@ android {
 
     defaultConfig {
         applicationId "com.jacky.appsupport"
+        javaCompileOptions {
+            annotationProcessorOptions {
+                arguments = [AROUTER_MODULE_NAME: project.getName()]
+            }
+        }
     }
     buildTypes {
         debug {
             minifyEnabled false
+            shrinkResources false
         }
         release {
             minifyEnabled true
@@ -22,9 +28,21 @@ android {
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
         }
     }
-    dynamicFeatures = [':biz_lint']
+    // 动态插件
+    dynamicFeatures = [
+            ':biz_lint',
+            ':biz_main',
+            ':biz_paging3'
+    ]
 }
 
 dependencies {
     implementation project(':basebiz')
+
+    // FIXME:改造为只用接口依赖；依赖注入IOC框架
+    implementation project(':foundationimpl')
+    implementation project(':foundationapi')
+
+    // 每一个使用ARouter注解的模块都要添加
+    annotationProcessor "com.alibaba:arouter-compiler:${versions.arouter}"
 }

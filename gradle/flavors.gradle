@@ -1,0 +1,6 @@
+android {
+    flavorDimensions "brand"
+    productFlavors {
+
+    }
+}

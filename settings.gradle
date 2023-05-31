@@ -21,6 +21,7 @@ include ':foundationimpl'
 include ':basebiz'
 include ':biz_lint'
 include ':biz_paging3'
+include ':biz_main'
 
 // 指定project与文件目录的对应关系
 project(':basebiz').projectDir = new File("./uilayer/basebiz")
@@ -31,3 +32,4 @@ project(':foundationimpl').projectDir = new File("./foundationlayer/foundationim
 // 业务插件apk
 project(':biz_lint').projectDir = new File("./uilayer/biz_lint")
 project(':biz_paging3').projectDir = new File("./uilayer/biz_paging3")
+project(':biz_main').projectDir = new File("./uilayer/biz_main")

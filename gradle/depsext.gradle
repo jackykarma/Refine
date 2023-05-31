@@ -14,6 +14,8 @@ ext {
             // test 库
             'junit'          : '4.13.2',
             'xjunit'         : '1.1.5',
-            'espresso'       : '3..5.1'
+            'espresso'       : '3..5.1',
+            // 三方库
+            'arouter'        : '1.5.2'
     ]
 }

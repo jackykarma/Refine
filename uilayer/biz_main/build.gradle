@@ -8,8 +8,10 @@ apply from: "$rootDir/gradle/appcommon.gradle"
 apply from: "$rootDir/gradle/dfmcommon.gradle"
 
 android {
-    namespace 'com.jacky.biz_lint'
+    namespace 'com.jacky.biz_main'
 }
 
 dependencies {
+    implementation project(':foundationapi')
+    annotationProcessor "com.alibaba:arouter-compiler:${versions.arouter}"
 }

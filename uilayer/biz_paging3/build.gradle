@@ -12,8 +12,6 @@ android {
 }
 
 dependencies {
-    implementation project(':app')
-    implementation project(':basebiz')
     // paging3库的依赖
     implementation "androidx.paging:paging-runtime:$versions.paging"
     testImplementation "androidx.paging:paging-common:$versions.paging"

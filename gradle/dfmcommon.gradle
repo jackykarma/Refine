@@ -1,4 +1,11 @@
 android {
+    defaultConfig {
+        javaCompileOptions {
+            annotationProcessorOptions {
+                arguments = [AROUTER_MODULE_NAME: project.getName()]
+            }
+        }
+    }
     buildTypes {
         debug {
             // minifyEnabled false
@@ -11,4 +18,12 @@ android {
             // shrinkResources true
         }
     }
+}
+
+dependencies {
+    implementation project(':app')
+    implementation project(':basebiz')
+
+    // ARouter::Compiler >>> No module name, for more information, look at gradle log.
+    annotationProcessor "com.alibaba:arouter-compiler:${versions.arouter}"
 }
