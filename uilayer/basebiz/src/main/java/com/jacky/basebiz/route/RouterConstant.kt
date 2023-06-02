@@ -16,5 +16,6 @@ object RouterConstant {
     object Page {
         const val GROUP_NAME = "page"
         const val HOME_ACTIVITY = "/path/homeActivity"
+        const val PAGING3_ACTIVITY = "/path/paging3Activity"
     }
 }

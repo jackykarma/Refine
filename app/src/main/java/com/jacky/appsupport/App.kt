@@ -4,6 +4,7 @@ import android.app.Application
 import android.content.Context
 import com.alibaba.android.arouter.launcher.ARouter
 import com.jacky.basebiz.route.IHomeRouterRegister
+import com.jacky.basebiz.route.IPaging3RouterRegister
 import com.jacky.foundationimpl.arch.PluginRouterRegister
 
 /**
@@ -19,11 +20,15 @@ class App : Application() {
     override fun attachBaseContext(base: Context?) {
         super.attachBaseContext(base)
         initARouter()
-//        registerPluginRouter()
+        registerPluginRouter()
     }
 
+    /**
+     * 注册动态feature插件路由
+     */
     private fun registerPluginRouter() {
         PluginRouterRegister.register(IHomeRouterRegister::class.java)
+        PluginRouterRegister.register(IPaging3RouterRegister::class.java)
     }
 
     /**

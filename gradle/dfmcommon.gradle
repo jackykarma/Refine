@@ -24,6 +24,7 @@ dependencies {
     implementation project(':app')
     implementation project(':basebiz')
 
+    implementation project(':foundationapi')
     // ARouter::Compiler >>> No module name, for more information, look at gradle log.
     annotationProcessor "com.alibaba:arouter-compiler:${versions.arouter}"
 }

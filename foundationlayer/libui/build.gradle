@@ -1,0 +1,16 @@
+plugins {
+    id 'com.android.library'
+    id 'org.jetbrains.kotlin.android'
+}
+
+apply from: "$rootDir/gradle/depsext.gradle"
+apply from: "$rootDir/gradle/appcommon.gradle"
+apply from: "$rootDir/gradle/libcommon.gradle"
+
+android {
+    namespace 'com.jacky.foundation.ui'
+}
+
+dependencies {
+    implementation project(':foundationapi')
+}

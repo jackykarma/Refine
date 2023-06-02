@@ -16,6 +16,7 @@ dependencies {
     api "androidx.core:core-ktx:${versions.xcorektx}"
     api "androidx.appcompat:appcompat:${versions.xappcompat}"
     api "androidx.constraintlayout:constraintlayout:${versions.constrantlayout}"
+    api "androidx.recyclerview:recyclerview:${versions.recyclerview}"
 
     // 通用的google官方库
     api "com.google.android.material:material:${versions.googlematerrial}"
