@@ -12,5 +12,6 @@ class SplashActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.layout_splash)
         ARouter.getInstance().build(Page.HOME_ACTIVITY).navigation()
+        finish()
     }
 }

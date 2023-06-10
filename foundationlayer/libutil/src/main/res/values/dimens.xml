@@ -1,8 +1,0 @@
-<?xml version="1.0" encoding="utf-8"?>
-<resources>
-    <dimen name="common_toolbar_height">62dp</dimen>
-    <dimen name="timeline_scroll_slop">2dp</dimen>
-    <dimen name="fast_scrollbar_translation_x">3dp</dimen>
-    <dimen name="fast_scrollbar_min_height">60dp</dimen>
-    <dimen name="timeline_pinch_update_distance_threshold">1.33dp</dimen>
-</resources>

@@ -13,7 +13,7 @@ dependencyResolutionManagement {
     }
 }
 
-rootProject.name = "AppSupport"
+rootProject.name = "Refine"
 
 include ':app'
 
