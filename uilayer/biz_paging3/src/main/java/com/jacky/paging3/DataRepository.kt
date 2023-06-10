@@ -1,10 +1,8 @@
 package com.jacky.paging3
 
-import androidx.paging.PagedList
 import androidx.paging.Pager
 import androidx.paging.PagingConfig
 import androidx.paging.PagingData
-import com.google.common.math.IntMath
 import com.jacky.paging3.entity.GitHubEntity
 import com.jacky.paging3.net.GithubService
 import kotlinx.coroutines.flow.Flow

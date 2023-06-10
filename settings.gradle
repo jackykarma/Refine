@@ -18,6 +18,9 @@ rootProject.name = "AppSupport"
 include ':app'
 include ':foundationapi'
 include ':foundationimpl'
+include ':libui'
+include ':libuikit'
+include ':libtaskscheduler'
 include ':basebiz'
 include ':biz_lint'
 include ':biz_paging3'
@@ -28,6 +31,9 @@ project(':basebiz').projectDir = new File("./uilayer/basebiz")
 
 project(':foundationapi').projectDir = new File("./foundationlayer/foundationapi")
 project(':foundationimpl').projectDir = new File("./foundationlayer/foundationimpl")
+project(':libui').projectDir = new File("./foundationlayer/libui")
+project(':libuikit').projectDir = new File("./foundationlayer/libuikit")
+project(':libtaskscheduler').projectDir = new File("./foundationlayer/libtaskscheduler")
 
 // 业务插件apk
 project(':biz_lint').projectDir = new File("./uilayer/biz_lint")

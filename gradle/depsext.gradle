@@ -1,9 +1,10 @@
 ext {
+    // TODO:不要用下划线，否则编译不过
     versions = [
             'appVersionCode' : 10000000, // major:100，minor:000，patch:000
             'appVersionName' : 'v1.00.0',
             'compileSdk'     : 33,
-            'minSdk'         : 21,
+            'minSdk'         : 29,
             'targetSdk'      : 33,
             // google 库
             'xappcompat'     : '1.6.1',
@@ -11,10 +12,16 @@ ext {
             'googlematerrial': '1.9.0',
             'constrantlayout': '2.2.0-alpha10',
             'paging'         : '3.1.1',
+            'kotlinxCoroutinesCore': '1.6.3',
+            'kotlinxCoroutinesAndroid': '1.6.3',
+            'kotlinVersion' : '1.8.10',
+            'lifecycleRuntimeKtx': '2.6.1',
+            'viewModelKtx': '2.4.0',
+            'liveDataKtx': '2.4.0',
             // test 库
             'junit'          : '4.13.2',
             'xjunit'         : '1.1.5',
-            'espresso'       : '3..5.1',
+            'espresso'       : '3.5.1',
             // 三方库
             'arouter'        : '1.5.2',
             'retrofit'       : '2.9.0',

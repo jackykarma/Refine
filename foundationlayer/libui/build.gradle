@@ -13,4 +13,6 @@ android {
 
 dependencies {
     implementation project(':foundationapi')
+    implementation project(':foundationimpl')
+    implementation "androidx.core:core-ktx:${versions.xcorektx}"
 }

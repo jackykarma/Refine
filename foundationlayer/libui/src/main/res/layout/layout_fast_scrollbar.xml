@@ -1,7 +1,24 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-             android:orientation="vertical"
-             android:layout_width="match_parent"
-             android:layout_height="match_parent">
+<merge xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:forceDarkAllowed="false"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
 
-</LinearLayout>
+    <ImageView
+        android:id="@+id/fast_scrollbar_bg"
+        android:src="@drawable/ic_fast_scrollbar"
+        android:layout_width="wrap_content"
+        android:paddingStart="3dp"
+        android:layout_height="wrap_content"
+        tools:ignore="ContentDescription" />
+
+    <ImageView
+        android:id="@+id/fast_scrollbar_content"
+        android:src="@drawable/ic_fast_scrollbar"
+        android:paddingStart="3dp"
+        android:layout_gravity="center"
+        android:layout_height="wrap_content"
+        android:layout_width="wrap_content"
+        tools:ignore="ContentDescription" />
+</merge>

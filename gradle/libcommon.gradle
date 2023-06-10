@@ -1,8 +1,4 @@
-dependencies {
-    testImplementation "junit:junit:${versions.junit}"
-    androidTestImplementation "androidx.test.ext:junit:${versions.xjunit}"
-    androidTestImplementation "androidx.test.espresso:espresso-core:${versions.espresso}"
-}
+apply from: "$rootDir/gradle/depsext.gradle"
 
 android {
     buildTypes {
@@ -15,4 +11,17 @@ android {
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
         }
     }
+}
+
+dependencies {
+
+    testImplementation "junit:junit:${versions.junit}"
+    androidTestImplementation "androidx.test.ext:junit:${versions.xjunit}"
+    androidTestImplementation "androidx.test.espresso:espresso-core:${versions.espresso}"
+
+    // 协程库
+    api "org.jetbrains.kotlin:kotlin-stdlib:${versions.kotlinVersion}"
+    api "org.jetbrains.kotlinx:kotlinx-coroutines-core:${versions.kotlinxCoroutinesCore}"
+    api "org.jetbrains.kotlinx:kotlinx-coroutines-android:${versions.kotlinxCoroutinesAndroid}"
+    api "androidx.lifecycle:lifecycle-runtime-ktx:${versions.lifecycleRuntimeKtx}"
 }
