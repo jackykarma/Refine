@@ -19,6 +19,9 @@ dependencies {
     api "androidx.appcompat:appcompat:${versions.xappcompat}"
     api "androidx.constraintlayout:constraintlayout:${versions.constrantlayout}"
     api "androidx.recyclerview:recyclerview:${versions.recyclerview}"
+    api "androidx.lifecycle:lifecycle-viewmodel-ktx:${versions.lifecycleVersion}"
+    api "androidx.lifecycle:lifecycle-livedata-ktx:${versions.lifecycleVersion}"
+    api "androidx.lifecycle:lifecycle-viewmodel-savedstate:${versions.lifecycleVersion}"
 
     // 通用的google官方库
     api "com.google.android.material:material:${versions.googlematerrial}"

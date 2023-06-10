@@ -4,6 +4,7 @@ import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import com.alibaba.android.arouter.facade.annotation.Route
 import com.jacky.basebiz.route.RouterConstant.Page
+import com.jacky.biz_main.databinding.LayoutHomeBinding
 
 /**
  * Copyright (C)  2022 Jacky夜雨
@@ -17,6 +18,7 @@ import com.jacky.basebiz.route.RouterConstant.Page
 class HomeActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.layout_main)
+        val binding = LayoutHomeBinding.inflate(layoutInflater)
+        setContentView(binding.root)
     }
 }

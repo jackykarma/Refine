@@ -10,3 +10,8 @@ apply from: "$rootDir/gradle/dfmcommon.gradle"
 android {
     namespace 'com.jacky.biz_main'
 }
+
+dependencies {
+    implementation project(":libtask")
+    implementation project(":libutil")
+}

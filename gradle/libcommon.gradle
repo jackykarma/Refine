@@ -21,8 +21,11 @@ dependencies {
     androidTestImplementation "androidx.test.espresso:espresso-core:${versions.espresso}"
 
     // 协程库
-    api "org.jetbrains.kotlin:kotlin-stdlib:${versions.kotlinVersion}"
-    api "org.jetbrains.kotlinx:kotlinx-coroutines-core:${versions.kotlinxCoroutinesCore}"
-    api "org.jetbrains.kotlinx:kotlinx-coroutines-android:${versions.kotlinxCoroutinesAndroid}"
-    api "androidx.lifecycle:lifecycle-runtime-ktx:${versions.lifecycleRuntimeKtx}"
+    implementation "org.jetbrains.kotlin:kotlin-stdlib:${versions.kotlinVersion}"
+    implementation "org.jetbrains.kotlinx:kotlinx-coroutines-core:${versions.kotlinxCoroutinesCore}"
+    implementation "org.jetbrains.kotlinx:kotlinx-coroutines-android:${versions.kotlinxCoroutinesAndroid}"
+    // 生命周期组件
+    implementation "androidx.lifecycle:lifecycle-viewmodel-ktx:${versions.lifecycleVersion}"
+    implementation "androidx.lifecycle:lifecycle-livedata-ktx:${versions.lifecycleVersion}"
+    implementation "androidx.lifecycle:lifecycle-viewmodel-savedstate:${versions.lifecycleVersion}"
 }
