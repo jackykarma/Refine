@@ -1,3 +1,4 @@
+// 基础的公共gradle
 apply from: "$rootDir/gradle/depsext.gradle"
 
 android {

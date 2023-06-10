@@ -5,7 +5,7 @@ import android.content.Context
 import com.alibaba.android.arouter.launcher.ARouter
 import com.jacky.basebiz.route.IHomeRouterRegister
 import com.jacky.basebiz.route.IPaging3RouterRegister
-import com.jacky.foundationimpl.arch.PluginRouterRegister
+import com.jacky.foundation.arch.PluginRouterRegister
 
 /**
  * Copyright (C)  2022 Jacky夜雨

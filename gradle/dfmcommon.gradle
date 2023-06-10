@@ -1,3 +1,4 @@
+// 动态业务的公共gradle配置
 android {
     defaultConfig {
         javaCompileOptions {
@@ -22,9 +23,9 @@ android {
 
 dependencies {
     implementation project(':app')
-    implementation project(':basebiz')
+    implementation project(':biz_base')
+    implementation project(':libarch')
 
-    implementation project(':foundationapi')
     // ARouter::Compiler >>> No module name, for more information, look at gradle log.
     annotationProcessor "com.alibaba:arouter-compiler:${versions.arouter}"
 }

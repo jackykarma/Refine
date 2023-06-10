@@ -16,26 +16,28 @@ dependencyResolutionManagement {
 rootProject.name = "AppSupport"
 
 include ':app'
-include ':foundationapi'
-include ':foundationimpl'
-include ':libui'
-include ':libuikit'
-include ':libtaskscheduler'
-include ':basebiz'
+
+include ':biz_base'
 include ':biz_lint'
 include ':biz_paging3'
 include ':biz_main'
 
+include ':libarch'
+include ':libui'
+include ':libutil'
+include ':libuikit'
+include ':libtask'
+
 // 指定project与文件目录的对应关系
-project(':basebiz').projectDir = new File("./uilayer/basebiz")
-
-project(':foundationapi').projectDir = new File("./foundationlayer/foundationapi")
-project(':foundationimpl').projectDir = new File("./foundationlayer/foundationimpl")
-project(':libui').projectDir = new File("./foundationlayer/libui")
-project(':libuikit').projectDir = new File("./foundationlayer/libuikit")
-project(':libtaskscheduler').projectDir = new File("./foundationlayer/libtaskscheduler")
-
+project(':biz_base').projectDir = new File("./uilayer/biz_base")
 // 业务插件apk
 project(':biz_lint').projectDir = new File("./uilayer/biz_lint")
 project(':biz_paging3').projectDir = new File("./uilayer/biz_paging3")
 project(':biz_main').projectDir = new File("./uilayer/biz_main")
+
+// 基础库
+project(':libarch').projectDir = new File("./foundationlayer/libarch")
+project(':libui').projectDir = new File("./foundationlayer/libui")
+project(':libutil').projectDir = new File("./foundationlayer/libutil")
+project(':libuikit').projectDir = new File("./foundationlayer/libuikit")
+project(':libtask').projectDir = new File("./foundationlayer/libtask")

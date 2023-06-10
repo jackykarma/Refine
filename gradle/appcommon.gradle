@@ -1,3 +1,5 @@
+// 应用的所有模块的公共配置
+
 apply from: "$rootDir/gradle/depsext.gradle"
 
 android {

@@ -37,11 +37,8 @@ android {
 }
 
 dependencies {
-    implementation project(':basebiz')
-
-    // FIXME:改造为只用接口依赖；依赖注入IOC框架
-    implementation project(':foundationimpl')
-    implementation project(':foundationapi')
+    implementation project(':biz_base')
+    implementation project(':libarch')
 
     // 每一个使用ARouter注解的模块都要添加
     annotationProcessor "com.alibaba:arouter-compiler:${versions.arouter}"
