@@ -3,6 +3,7 @@ package com.jacky.biz_main
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import com.alibaba.android.arouter.facade.annotation.Route
+import com.alibaba.android.arouter.launcher.ARouter
 import com.jacky.basebiz.route.RouterConstant.Page
 import com.jacky.biz_main.databinding.LayoutHomeBinding
 
@@ -20,5 +21,6 @@ class HomeActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         val binding = LayoutHomeBinding.inflate(layoutInflater)
         setContentView(binding.root)
+        ARouter.getInstance().build(Page.TASK_MANAGE_ACTIVITY).navigation()
     }
 }

@@ -12,13 +12,21 @@ android {
 }
 
 dependencies {
+    // TODO:基础设施库应该总是打包在base apk中，可以放在统一的位置，比如basebiz或app模块
+    //  其他地方引用统一使用compileOnly，dfm多个依赖同一个project在此工程中也会编译报错，
+    //  gradle 7.0.3不会报错，这可能是与版本有关系，但此种做法是最为稳妥的
     implementation project(":libarch")
+    implementation project(":libutil")
+    implementation project(":libtask")
+
+    // 通用的标准库
+    api "com.google.code.gson:gson:${versions.gsonVersion}"
 
     // 通用的基础的androidx库
     api "androidx.core:core-ktx:${versions.xcorektx}"
     api "androidx.appcompat:appcompat:${versions.xappcompat}"
     api "androidx.constraintlayout:constraintlayout:${versions.constrantlayout}"
-    api "androidx.recyclerview:recyclerview:${versions.recyclerview}"
+    api "androidx.recyclerview:recyclerview:${versions.recyclerViewVersion}"
     api "androidx.lifecycle:lifecycle-viewmodel-ktx:${versions.lifecycleVersion}"
     api "androidx.lifecycle:lifecycle-livedata-ktx:${versions.lifecycleVersion}"
     api "androidx.lifecycle:lifecycle-viewmodel-savedstate:${versions.lifecycleVersion}"

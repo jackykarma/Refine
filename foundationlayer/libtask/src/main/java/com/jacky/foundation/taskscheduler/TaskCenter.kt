@@ -1,6 +1,7 @@
 package com.jacky.foundation.taskscheduler
 
-import android.util.Log
+import com.jacky.foundation.log.HiLog
+import java.util.PriorityQueue
 
 /**
  * Copyright (C)  2022 Jacky夜雨
@@ -14,7 +15,9 @@ import android.util.Log
  *
  * 问题：任务管理的时候，是需要知道任务的状态的，比如任务是否在运行中，而这个信息却只有调度器知道。这个信息该如何同步？
  */
-class TaskCenter {
+object TaskCenter {
+
+    private const val TAG = "TaskCenter"
 
     /**
      * 任务调度器
@@ -32,13 +35,30 @@ class TaskCenter {
     private val lowPriTasks = taskGroups.map { }
 
     /**
+     * 统计有所已经运行的任务, 按照分组来统计
+     */
+    private val runFinishedTasks: MutableList<Task<*>>
+        get() {
+            return mutableListOf()
+        }
+
+    /**
      * 注册任何任务对象到任务中心
      */
     @Synchronized
     fun register(task: Task<*>) {
-        Log.d(TAG, "register: $task")
+        HiLog.d(TAG, "register: $task")
         taskGroups[getTaskGroup(task)]?.add(task)
         taskDispatcher.notifyTaskAdded(task)
+    }
+
+    @Synchronized
+    fun registerBatch(tasks: PriorityQueue<Task<*>>) {
+        HiLog.d(TAG, "registerBatch: $tasks")
+        // 排序
+        tasks.forEach {
+            register(it)
+        }
     }
 
     /**
@@ -46,14 +66,14 @@ class TaskCenter {
      */
     @Synchronized
     fun unregister(task: Task<*>) {
-        Log.d(TAG, "unregister task:$task")
+        HiLog.d(TAG, "unregister $task")
         taskDispatcher.notifyTaskRemoved(task, object : TaskDispatcher.TaskHandleCallback {
             override fun taskCantRemove(task: Task<*>) {
-                Log.w(TAG, "taskCantRemove task:$task")
+                HiLog.w(TAG, "taskCantRemove $task")
             }
 
             override fun taskRemoved(task: Task<*>) {
-                Log.d(TAG, "taskRemoved task:$task")
+                HiLog.d(TAG, "taskRemoved $task")
                 taskGroups[getTaskGroup(task)]?.remove(task)
             }
         })
@@ -83,11 +103,11 @@ class TaskCenter {
         taskDispatcher.notifyTaskGroupRemoved(taskGroups[groupName],
             object : TaskDispatcher.TaskHandleCallback {
                 override fun taskCantRemove(task: Task<*>) {
-                    Log.w(TAG, "taskCantRemove task:$task")
+                    HiLog.w(TAG, "taskCantRemove task:$task")
                 }
 
                 override fun taskRemoved(task: Task<*>) {
-                    Log.d(TAG, "taskRemoved task:$task")
+                    HiLog.d(TAG, "taskRemoved task:$task")
                     taskGroups[getTaskGroup(task)]?.remove(task)
                 }
             })
@@ -108,9 +128,5 @@ class TaskCenter {
 
     private fun getTaskGroup(task: Task<*>): String {
         return task.groupName
-    }
-
-    companion object {
-        private const val TAG = "TaskCenter"
     }
 }

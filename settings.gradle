@@ -19,8 +19,9 @@ include ':app'
 
 include ':biz_base'
 include ':biz_lint'
-include ':biz_paging3'
 include ':biz_main'
+include ':biz_paging3'
+include ':biz_taskmanage'
 
 include ':libarch'
 include ':libui'
@@ -34,6 +35,7 @@ project(':biz_base').projectDir = new File("./uilayer/biz_base")
 project(':biz_lint').projectDir = new File("./uilayer/biz_lint")
 project(':biz_paging3').projectDir = new File("./uilayer/biz_paging3")
 project(':biz_main').projectDir = new File("./uilayer/biz_main")
+project(':biz_taskmanage').projectDir = new File("./uilayer/biz_taskmanage")
 
 // 基础库
 project(':libarch').projectDir = new File("./foundationlayer/libarch")

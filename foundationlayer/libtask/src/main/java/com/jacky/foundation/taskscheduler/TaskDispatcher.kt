@@ -1,6 +1,7 @@
 package com.jacky.foundation.taskscheduler
 
 import android.util.Log
+import com.jacky.foundation.log.HiLog
 import java.util.concurrent.LinkedBlockingQueue
 import java.util.concurrent.PriorityBlockingQueue
 import java.util.concurrent.TimeUnit
@@ -17,10 +18,6 @@ import java.util.concurrent.atomic.AtomicInteger
  * 任务调度器
  */
 class TaskDispatcher(private val runMode: RunMode) {
-
-    private val runningTasks: MutableList<Task<*>> = mutableListOf()
-
-    private val prepareTasks: MutableList<Task<*>> = mutableListOf()
 
     private val executor: PauseableThreadPoolExecutor by lazy {
         if (runMode == RunMode.SINGLE_THREAD) {
@@ -75,7 +72,7 @@ class TaskDispatcher(private val runMode: RunMode) {
      * 允许重复添加同一个任务，执行多次嘛
      */
     fun notifyTaskAdded(task: Task<*>) {
-        runningTasks.add(task)
+        HiLog.d(TAG, "notifyTaskAdded $task")
         executor.execute(task)
     }
 
@@ -90,23 +87,30 @@ class TaskDispatcher(private val runMode: RunMode) {
 
     /**
      * 通知调度器有任务需要被移除
+     * 调度器只是尝试看看能否移除，这个是不能保证的
      */
     fun notifyTaskRemoved(task: Task<*>, callback: TaskHandleCallback) {
         if (task.runningState == Task.RunningState.RUNNING) {
             if (!task.isInterruptable) {
-                // 此任务不可以移除哦, 告诉任务管理中心
+                // 此任务非常重要，不可以移除哦, 告知到任务管理中心
                 callback.taskCantRemove(task)
             } else {
-                // FIXME:触发中断取消任务; 如何终止线程池某个任务
-                // FIXME:如何知道某个task是被线程池分配到哪个线程执行的
-                val ret = executor.remove(task)
-                if (ret) {
-                    callback.taskRemoved(task)
-                } else {
-                    callback.taskCantRemove(task)
-                }
+                // FIXME:还未发现线程池中的指定任务的中断方法
             }
-        } else {
+        } else if (task.runningState == Task.RunningState.CREATED){
+            // TODO:注意，移除只能移除还在队列中的任务，如果任务已经从队列中取出交给线程去运行了，那么remove总是返回false，
+            //  这个remove也无法中断某个指定任务的执行。
+            val ret = executor.remove(task)
+            HiLog.d(TAG, "executor remove task ret:$ret")
+            if (ret) {
+                callback.taskRemoved(task)
+            } else {
+                callback.taskCantRemove(task)
+            }
+            callback.taskRemoved(task)
+        } else if (task.runningState == Task.RunningState.CANCELED ||
+                task.runningState == Task.RunningState.FINISHED) {
+            // 已经执行完的任务或是被取消的任务都是可以直接移除的
             callback.taskRemoved(task)
         }
     }

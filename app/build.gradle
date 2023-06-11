@@ -30,15 +30,17 @@ android {
     }
     // 动态插件
     dynamicFeatures = [
-            ':biz_lint',
             ':biz_main',
-            ':biz_paging3'
+            ':biz_lint',
+            ':biz_paging3',
+            ':biz_taskmanage'
     ]
 }
 
 dependencies {
     implementation project(':biz_base')
-    implementation project(':libarch')
+    compileOnly project(':libarch')
+    compileOnly project(':libutil')
 
     // 每一个使用ARouter注解的模块都要添加
     annotationProcessor "com.alibaba:arouter-compiler:${versions.arouter}"

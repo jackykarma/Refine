@@ -12,6 +12,5 @@ android {
 }
 
 dependencies {
-    implementation project(":libtask")
-    implementation project(":libutil")
+    compileOnly project(":libutil")
 }

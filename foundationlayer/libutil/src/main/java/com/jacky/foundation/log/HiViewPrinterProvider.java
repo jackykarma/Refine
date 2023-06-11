@@ -9,14 +9,14 @@ import android.widget.TextView;
 
 import androidx.recyclerview.widget.RecyclerView;
 
-import org.devio.hi.library.util.HiDisplayUtil;
+import com.jacky.foundation.util.DisplayUtil;
 
 public class HiViewPrinterProvider {
-    private FrameLayout rootView;
+    private final FrameLayout rootView;
     private View floatingView;
     private boolean isOpen;
     private FrameLayout logView;
-    private RecyclerView recyclerView;
+    private final RecyclerView recyclerView;
 
     public HiViewPrinterProvider(FrameLayout rootView, RecyclerView recyclerView) {
         this.rootView = rootView;
@@ -37,7 +37,7 @@ public class HiViewPrinterProvider {
         floatingView.setTag(TAG_FLOATING_VIEW);
         floatingView.setBackgroundColor(Color.BLACK);
         floatingView.setAlpha(0.8f);
-        params.bottomMargin = HiDisplayUtil.dp2px(100, rootView.getResources());
+        params.bottomMargin = DisplayUtil.dp2px(100, rootView.getResources());
         rootView.addView(genFloatingView(), params);
     }
 
@@ -49,7 +49,7 @@ public class HiViewPrinterProvider {
             return;
         }
         FrameLayout.LayoutParams params =
-            new FrameLayout.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, HiDisplayUtil.dp2px(160, rootView.getResources()));
+            new FrameLayout.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, DisplayUtil.dp2px(160, rootView.getResources()));
         params.gravity = Gravity.BOTTOM;
         View logView = genLogView();
         logView.setTag(TAG_LOG_VIEW);

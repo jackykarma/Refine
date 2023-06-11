@@ -1,7 +1,7 @@
 package com.jacky.foundation.taskscheduler
 
-import android.util.Log
 import androidx.annotation.IntRange
+import com.jacky.foundation.log.HiLog
 
 /**
  * Copyright (C)  2022 Jacky夜雨
@@ -35,14 +35,13 @@ abstract class Task<TaskResult> constructor(
      *
      * 优先级可以动态调整
      */
-    @IntRange(from = 0, to = 100)
-    var priority: Int = DEFAULT_PRIORITY
+    @IntRange(from = 0, to = 100) var priority: Int = DEFAULT_PRIORITY
 ) : Runnable, Comparable<Task<TaskResult>> {
 
     /**
      * 任务运行状态
      */
-    var runningState = RunningState.NOT_RUNNING
+    var runningState = RunningState.CREATED
         set(value) {
             if (field != value) field = value
         }
@@ -82,14 +81,14 @@ abstract class Task<TaskResult> constructor(
      * 可以复写此方法，以在任务真正执行前做些骚操作
      */
     open fun onStart() {
-        Log.d(TAG, "Task-${id}:${name} onStart")
+        HiLog.d(TAG, "$this onStart")
     }
 
     /**
      * 任务执行过程中
      */
     open fun onRunning(): TaskResult? {
-        Log.d(TAG, "Task-${id}:${name} onRunning")
+        HiLog.d(TAG, "$this onRunning")
         runningState = RunningState.RUNNING
         return taskResult
     }
@@ -99,30 +98,50 @@ abstract class Task<TaskResult> constructor(
      * 可以复写此方法，以在任务执行完成后做些骚操作
      */
     open fun onFinished(taskResult: TaskResult?) {
-        runningState = RunningState.NOT_RUNNING
-        Log.d(TAG, "Task-${id}:${name} onFinished")
+        runningState = RunningState.FINISHED
+        HiLog.d(TAG, "$this onFinished")
     }
 
     /**
      * 任务被取消
-     * 可以复写此方法，以在任务被取消后做些骚操作
+     * 可以复写此方法，以在任务被取消后做些骚操作, 比如对异常中断后的处理与现场恢复。
      */
     open fun onCancelled() {
-        runningState = RunningState.NOT_RUNNING
-        Log.d(TAG, "Task-${id}:${name} onCancelled")
+        runningState = RunningState.CANCELED
+        HiLog.d(TAG, "$this onCancelled")
     }
 
     override fun compareTo(other: Task<TaskResult>): Int {
-        return if (this.priority < other.priority)
-            1
-        else if (this.priority > other.priority)
-            -1
+        return if (this.priority < other.priority) -1
+        else if (this.priority > other.priority) 1
         else 0
     }
 
+    override fun toString(): String {
+        return "Task(groupName='$groupName', name='$name', isInterruptable=$isInterruptable, priority=$priority)"
+    }
+
+
     enum class RunningState {
-        NOT_RUNNING,
+        /**
+         * 任务创建的初始状态，还未开始运行
+         */
+        CREATED,
+
+        /**
+         * 任务在运行中
+         */
         RUNNING,
+
+        /**
+         * 任务正常结束
+         */
+        FINISHED,
+
+        /**
+         * 任务被取消或中断了
+         */
+        CANCELED
     }
 
     companion object {
