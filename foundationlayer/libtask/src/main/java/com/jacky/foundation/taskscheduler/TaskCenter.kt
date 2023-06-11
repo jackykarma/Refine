@@ -50,6 +50,7 @@ object TaskCenter {
         HiLog.d(TAG, "register: $task")
         taskGroups[getTaskGroup(task)]?.add(task)
         taskDispatcher.notifyTaskAdded(task)
+        TaskMonitor.updateTasks(taskGroups)
     }
 
     @Synchronized
@@ -81,7 +82,6 @@ object TaskCenter {
 
     /**
      * 暂停任务中心所有任务
-     * 似乎没有什么意义
      */
     fun pause() {
         taskDispatcher.pause()
@@ -89,7 +89,6 @@ object TaskCenter {
 
     /**
      * 恢复任务中心所有任务运行
-     * 似乎没有什么意义
      */
     fun resume() {
         taskDispatcher.resume()

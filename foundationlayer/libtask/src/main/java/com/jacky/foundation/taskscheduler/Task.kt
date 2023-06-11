@@ -55,12 +55,18 @@ abstract class Task<TaskResult> constructor(
             if (field != value) field = value
         }
 
+    /**
+     * 此Task本次运行的耗时
+     */
+    private var cost: Long = 0
+
     private var taskResult: TaskResult? = null
 
     /**
      * 加上final为了禁止外部复写修改
      */
     final override fun run() {
+        val startTime = System.currentTimeMillis()
         onStart()
         try {
             if (Thread.currentThread().isInterrupted) {
@@ -69,6 +75,9 @@ abstract class Task<TaskResult> constructor(
             }
             // onRunning是任务执行的函数体，它可能会有返回结果
             taskResult = onRunning()
+            val taskRunCost = System.currentTimeMillis() - startTime
+            this.cost = taskRunCost
+            TaskMonitor.collectTaskCostTime(this, taskRunCost)
         } catch (e: InterruptedException) {
             onCancelled()
             return
@@ -118,9 +127,10 @@ abstract class Task<TaskResult> constructor(
     }
 
     override fun toString(): String {
-        return "Task(groupName='$groupName', name='$name', isInterruptable=$isInterruptable, priority=$priority)"
+        return "Task(groupName='$groupName', name='$name', " +
+                "isInterruptable=$isInterruptable, priority=$priority, " +
+                "cost=$cost)"
     }
-
 
     enum class RunningState {
         /**
@@ -158,9 +168,21 @@ abstract class Task<TaskResult> constructor(
         private const val LOWEST_PRIORITY = 100
 
         /**
-         * 最高优先级
+         * 后台最高优先级
          */
-        private const val HIGHEST_PRIORITY = 0
+        private const val BG_HIGHEST_PRIORITY = 11
+
+        /**
+         * 前台最低优先级
+         */
+        private const val FG_LOWEST_PRIORITY = 10
+
+        /**
+         * 前台最高优先级
+         * 1.加载用户第一眼要看到的数据任务
+         * 2.必须预加载的任务（否则影响用户体验）
+         */
+        private const val FG_HIGHEST_PRIORITY = 0
 
         /**
          * 默认优先级设置为最低
