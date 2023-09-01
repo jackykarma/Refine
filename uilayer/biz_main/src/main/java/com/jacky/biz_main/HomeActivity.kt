@@ -21,6 +21,6 @@ class HomeActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         val binding = LayoutHomeBinding.inflate(layoutInflater)
         setContentView(binding.root)
-        ARouter.getInstance().build(Page.TASK_MANAGE_ACTIVITY).navigation()
+        ARouter.getInstance().build(Page.CUSTOM_VIEW_ACTIVITY).navigation()
     }
 }

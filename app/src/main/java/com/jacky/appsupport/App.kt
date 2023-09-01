@@ -6,6 +6,7 @@ import android.content.Context
 import com.alibaba.android.arouter.launcher.ARouter
 import com.google.gson.Gson
 import com.google.gson.GsonBuilder
+import com.jacky.basebiz.route.ICustomViewRouterRegister
 import com.jacky.basebiz.route.IHomeRouterRegister
 import com.jacky.basebiz.route.IPaging3RouterRegister
 import com.jacky.basebiz.route.ITaskRouterRegister
@@ -39,6 +40,7 @@ class App : Application() {
         PluginRouterRegister.register(IHomeRouterRegister::class.java)
         PluginRouterRegister.register(IPaging3RouterRegister::class.java)
         PluginRouterRegister.register(ITaskRouterRegister::class.java)
+        PluginRouterRegister.register(ICustomViewRouterRegister::class.java)
     }
 
     /**

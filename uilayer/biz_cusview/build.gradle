@@ -1,0 +1,16 @@
+plugins {
+    id 'com.android.dynamic-feature'
+    id 'org.jetbrains.kotlin.android'
+}
+
+apply from: "$rootDir/gradle/depsext.gradle"
+apply from: "$rootDir/gradle/appcommon.gradle"
+apply from: "$rootDir/gradle/dfmcommon.gradle"
+
+android {
+    namespace 'com.jacky.biz_cusview'
+    resourcePrefix 'cusview'
+}
+
+dependencies {
+}
