@@ -6,8 +6,11 @@ import android.view.ViewGroup
 import android.widget.FrameLayout
 import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
+import androidx.fragment.app.Fragment
 import com.alibaba.android.arouter.facade.annotation.Route
 import com.jacky.basebiz.route.RouterConstant
+import com.jacky.biz_cusview.R
+import com.jacky.biz_cusview.fragment.CordinateSystemFragment
 
 /**
  * Copyright (C)  2022 Jacky夜雨
@@ -31,5 +34,12 @@ class CustomViewActivity : AppCompatActivity() {
             ViewGroup.LayoutParams.WRAP_CONTENT
         )
         setContentView(text)
+        showFragment(CordinateSystemFragment())
+    }
+
+    private fun showFragment(fragment: Fragment) {
+        supportFragmentManager.beginTransaction()
+            .replace(R.id.fg_container, fragment)
+            .commitNowAllowingStateLoss()
     }
 }
