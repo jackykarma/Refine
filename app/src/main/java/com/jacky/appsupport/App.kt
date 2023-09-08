@@ -1,10 +1,8 @@
 package com.jacky.appsupport
 
-import android.app.ActivityManager
 import android.app.Application
 import android.content.Context
 import com.alibaba.android.arouter.launcher.ARouter
-import com.google.gson.Gson
 import com.google.gson.GsonBuilder
 import com.jacky.basebiz.route.ICustomViewRouterRegister
 import com.jacky.basebiz.route.IHomeRouterRegister
@@ -14,6 +12,7 @@ import com.jacky.foundation.arch.PluginRouterRegister
 import com.jacky.foundation.log.HiConsolePrinter
 import com.jacky.foundation.log.HiFilePrinter
 import com.jacky.foundation.log.HiLogConfig
+import com.jacky.foundation.log.HiLogConfig.JsonParser
 import com.jacky.foundation.log.HiLogManager
 
 /**
