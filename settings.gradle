@@ -17,7 +17,7 @@ rootProject.name = "Refine"
 
 include ':app'
 
-include ':biz_base'
+include ':biz_common'
 include ':biz_lint'
 include ':biz_main'
 include ':biz_paging3'
@@ -30,16 +30,19 @@ include ':libutil'
 include ':libuikit'
 include ':libtask'
 
-// 指定project与文件目录的对应关系
-project(':biz_base').projectDir = new File("./uilayer/biz_base")
-// 业务插件apk
+// 业务层：业务插件apk
 project(':biz_lint').projectDir = new File("./uilayer/biz_lint")
 project(':biz_paging3').projectDir = new File("./uilayer/biz_paging3")
 project(':biz_main').projectDir = new File("./uilayer/biz_main")
 project(':biz_taskmanage').projectDir = new File("./uilayer/biz_taskmanage")
 project(':biz_cusview').projectDir = new File("./uilayer/biz_cusview")
 
-// 基础库
+// 业务公共层：指定project与文件目录的对应关系
+project(':biz_common').projectDir = new File("./uilayer/biz_common")
+
+// 领域层
+
+// 基础设施层
 project(':libarch').projectDir = new File("./foundationlayer/libarch")
 project(':libui').projectDir = new File("./foundationlayer/libui")
 project(':libutil').projectDir = new File("./foundationlayer/libutil")

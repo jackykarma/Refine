@@ -1,10 +1,6 @@
 package com.jacky.biz_cusview.gui
 
-import android.graphics.Color
 import android.os.Bundle
-import android.view.ViewGroup
-import android.widget.FrameLayout
-import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
 import com.alibaba.android.arouter.facade.annotation.Route
@@ -25,15 +21,7 @@ class CustomViewActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        val text = TextView(this)
-        text.text = "自定义View"
-        text.textSize = 18f
-        text.setTextColor(Color.parseColor("#FFAABB"))
-        text.layoutParams = FrameLayout.LayoutParams(
-            ViewGroup.LayoutParams.WRAP_CONTENT,
-            ViewGroup.LayoutParams.WRAP_CONTENT
-        )
-        setContentView(text)
+        setContentView(R.layout.layout_custom_view)
         showFragment(CordinateSystemFragment())
     }
 

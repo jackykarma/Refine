@@ -23,7 +23,7 @@ android {
 
 dependencies {
     implementation project(':app')
-    implementation project(':biz_base')
+    implementation project(':biz_common')
     implementation project(':libarch')
 
     // ARouter::Compiler >>> No module name, for more information, look at gradle log.

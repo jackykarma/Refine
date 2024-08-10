@@ -1,4 +1,4 @@
-package com.jacky.appsupport
+package com.jacky.refine
 
 import android.annotation.SuppressLint
 import android.os.Bundle
@@ -12,6 +12,7 @@ class SplashActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.layout_splash)
         ARouter.getInstance().build(Page.HOME_ACTIVITY).navigation()
+//        ARouter.getInstance().build(Page.CUSTOM_VIEW_ACTIVITY).navigation()
         finish()
     }
 }

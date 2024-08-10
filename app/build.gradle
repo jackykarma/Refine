@@ -7,10 +7,10 @@ apply from: "$rootDir/gradle/appcommon.gradle"
 apply from: "$rootDir/gradle/depsext.gradle"
 
 android {
-    namespace 'com.jacky.appsupport'
+    namespace 'com.jacky.refine'
 
     defaultConfig {
-        applicationId "com.jacky.appsupport"
+        applicationId "com.jacky.refine"
         javaCompileOptions {
             annotationProcessorOptions {
                 arguments = [AROUTER_MODULE_NAME: project.getName()]
@@ -39,7 +39,7 @@ android {
 }
 
 dependencies {
-    implementation project(':biz_base')
+    implementation project(':biz_common')
     compileOnly project(':libarch')
     compileOnly project(':libutil')
 
