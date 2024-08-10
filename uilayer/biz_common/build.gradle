@@ -8,7 +8,7 @@ apply from: "$rootDir/gradle/appcommon.gradle"
 apply from: "$rootDir/gradle/libcommon.gradle"
 
 android {
-    namespace 'com.jacky.basebiz'
+    namespace 'com.jacky.bizcommon'
 }
 
 dependencies {

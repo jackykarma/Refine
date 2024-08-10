@@ -9,7 +9,7 @@ import androidx.paging.LoadState
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.alibaba.android.arouter.facade.annotation.Route
-import com.jacky.basebiz.route.RouterConstant
+import com.jacky.bizcommon.route.RouterConstant
 import com.jacky.biz_paging3.R
 import kotlinx.coroutines.launch
 

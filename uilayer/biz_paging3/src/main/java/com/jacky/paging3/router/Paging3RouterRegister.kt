@@ -3,9 +3,8 @@ package com.jacky.paging3.router
 import com.alibaba.android.arouter.core.LogisticsCenter
 import com.alibaba.android.arouter.facade.enums.RouteType
 import com.alibaba.android.arouter.facade.model.RouteMeta
-import com.alibaba.android.arouter.facade.template.IRouteGroup
-import com.jacky.basebiz.route.IPaging3RouterRegister
-import com.jacky.basebiz.route.RouterConstant
+import com.jacky.bizcommon.route.IPaging3RouterRegister
+import com.jacky.bizcommon.route.RouterConstant
 import com.jacky.paging3.gui.Paging3Activity
 
 /**
@@ -19,7 +18,8 @@ import com.jacky.paging3.gui.Paging3Activity
 class Paging3RouterRegister : IPaging3RouterRegister {
 
     override fun registerPage() {
-        LogisticsCenter.addRouteGroupDynamic(RouterConstant.Page.GROUP_NAME
+        LogisticsCenter.addRouteGroupDynamic(
+            RouterConstant.Page.GROUP_NAME
         ) { atlas ->
             val routeMeta = RouteMeta()
             routeMeta.type = RouteType.ACTIVITY

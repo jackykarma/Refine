@@ -4,8 +4,8 @@ import android.util.Log
 import com.alibaba.android.arouter.core.LogisticsCenter
 import com.alibaba.android.arouter.facade.enums.RouteType
 import com.alibaba.android.arouter.facade.model.RouteMeta
-import com.jacky.basebiz.route.IHomeRouterRegister
-import com.jacky.basebiz.route.RouterConstant.Page
+import com.jacky.bizcommon.route.IHomeRouterRegister
+import com.jacky.bizcommon.route.RouterConstant.Page
 import com.jacky.biz_main.HomeActivity
 
 /**

@@ -4,8 +4,8 @@ import android.util.Log
 import com.alibaba.android.arouter.core.LogisticsCenter
 import com.alibaba.android.arouter.facade.enums.RouteType
 import com.alibaba.android.arouter.facade.model.RouteMeta
-import com.jacky.basebiz.route.ICustomViewRouterRegister
-import com.jacky.basebiz.route.RouterConstant
+import com.jacky.bizcommon.route.ICustomViewRouterRegister
+import com.jacky.bizcommon.route.RouterConstant
 import com.jacky.biz_cusview.gui.CustomViewActivity
 
 /**
@@ -16,7 +16,7 @@ import com.jacky.biz_cusview.gui.CustomViewActivity
  * @since 2023/8/18
  * @version v1.0.00
  */
-class CustomViewRouterRegister : ICustomViewRouterRegister{
+class CustomViewRouterRegister : ICustomViewRouterRegister {
 
     override fun registerPage() {
         // 动态注册组件路由到路由中心表

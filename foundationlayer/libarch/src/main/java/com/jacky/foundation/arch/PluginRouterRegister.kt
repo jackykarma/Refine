@@ -15,6 +15,11 @@ object PluginRouterRegister : IPluginRouterRegister {
 
     private const val TAG = "PluginRouterRegister"
 
+    /**
+     * 动态注册组件提供的服务接口
+     * FIXME：ServiceLoader的方式得到RouterRegister实际实例对象需要经过IO，存在性能风险，尤其是在启动时使用主线程，
+     *  会对应用启动性能有影响。
+     */
     override fun register(routerClz: Class<out IRouterRegister>) {
         val serviceLoader = ServiceLoader.load(routerClz)
         var iRouter: IRouterRegister? = null

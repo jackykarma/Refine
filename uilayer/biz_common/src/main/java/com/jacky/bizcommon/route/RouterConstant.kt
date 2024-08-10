@@ -1,4 +1,4 @@
-package com.jacky.basebiz.route
+package com.jacky.bizcommon.route
 
 /**
  * Copyright (C)  2022 Jacky夜雨
@@ -17,6 +17,7 @@ object RouterConstant {
         const val GROUP_NAME = "page"
         const val HOME_ACTIVITY = "/path/homeActivity"
         const val PAGING3_ACTIVITY = "/path/paging3Activity"
+        const val LINT_ACTIVITY = "/path/lintActivity"
         const val TASK_MANAGE_ACTIVITY = "/path/taskActivity"
         const val CUSTOM_VIEW_ACTIVITY = "/path/customViewActivity"
     }

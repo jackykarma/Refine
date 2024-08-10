@@ -4,10 +4,10 @@ import android.app.Application
 import android.content.Context
 import com.alibaba.android.arouter.launcher.ARouter
 import com.google.gson.GsonBuilder
-import com.jacky.basebiz.route.ICustomViewRouterRegister
-import com.jacky.basebiz.route.IHomeRouterRegister
-import com.jacky.basebiz.route.IPaging3RouterRegister
-import com.jacky.basebiz.route.ITaskRouterRegister
+import com.jacky.bizcommon.route.ICustomViewRouterRegister
+import com.jacky.bizcommon.route.IHomeRouterRegister
+import com.jacky.bizcommon.route.IPaging3RouterRegister
+import com.jacky.bizcommon.route.ITaskRouterRegister
 import com.jacky.foundation.arch.PluginRouterRegister
 import com.jacky.foundation.log.HiConsolePrinter
 import com.jacky.foundation.log.HiFilePrinter

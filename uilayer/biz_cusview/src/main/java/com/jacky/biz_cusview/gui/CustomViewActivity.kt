@@ -4,7 +4,7 @@ import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
 import com.alibaba.android.arouter.facade.annotation.Route
-import com.jacky.basebiz.route.RouterConstant
+import com.jacky.bizcommon.route.RouterConstant
 import com.jacky.biz_cusview.R
 import com.jacky.biz_cusview.fragment.CordinateSystemFragment
 

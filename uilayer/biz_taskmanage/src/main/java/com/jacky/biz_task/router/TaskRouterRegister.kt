@@ -3,8 +3,8 @@ package com.jacky.biz_task.router
 import com.alibaba.android.arouter.core.LogisticsCenter
 import com.alibaba.android.arouter.facade.enums.RouteType
 import com.alibaba.android.arouter.facade.model.RouteMeta
-import com.jacky.basebiz.route.ITaskRouterRegister
-import com.jacky.basebiz.route.RouterConstant
+import com.jacky.bizcommon.route.ITaskRouterRegister
+import com.jacky.bizcommon.route.RouterConstant
 import com.jacky.biz_task.gui.TaskManageActivity
 
 /**
@@ -18,7 +18,8 @@ import com.jacky.biz_task.gui.TaskManageActivity
 class TaskRouterRegister : ITaskRouterRegister {
 
     override fun registerPage() {
-        LogisticsCenter.addRouteGroupDynamic(RouterConstant.Page.GROUP_NAME
+        LogisticsCenter.addRouteGroupDynamic(
+            RouterConstant.Page.GROUP_NAME
         ) { atlas ->
             val routeMeta = RouteMeta()
             routeMeta.type = RouteType.ACTIVITY

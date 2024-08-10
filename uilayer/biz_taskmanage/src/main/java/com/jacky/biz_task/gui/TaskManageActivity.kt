@@ -9,8 +9,8 @@ import com.google.android.material.tabs.TabLayout
 import com.google.android.material.tabs.TabLayout.OnTabSelectedListener
 import com.google.android.material.tabs.TabLayoutMediator
 import com.google.android.material.tabs.TabLayoutMediator.TabConfigurationStrategy
-import com.jacky.basebiz.route.RouterConstant
-import com.jacky.basebiz.route.RouterConstant.Page.TASK_MANAGE_ACTIVITY
+import com.jacky.bizcommon.route.RouterConstant
+import com.jacky.bizcommon.route.RouterConstant.Page.TASK_MANAGE_ACTIVITY
 import com.jacky.biz_taskmanager.databinding.LayoutTaskManageBinding
 
 @Route(group = RouterConstant.Page.GROUP_NAME, path = TASK_MANAGE_ACTIVITY)
