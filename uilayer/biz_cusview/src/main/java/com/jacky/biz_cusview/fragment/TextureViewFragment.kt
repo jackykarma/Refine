@@ -63,14 +63,17 @@ class TextureViewFragment : Fragment() {
                 HiLog.log(HiLogType.D, TAG, "draw threadName:${Thread.currentThread().name}")
             }
         }
+        // SurfaceTexture是用来补货视频中的图像帧的，视频流可以是相机预览或是视频解码数据。
+        // SurfaceTexture与SurfaceView不同的是：它对图像流的处理并不直接显示，而是转为OpenGL ES的外部纹理
+        // 因此可以作为图像流数据的二次处理（如Camera滤镜，桌面特效等）
         textureView.surfaceTextureListener = object : SurfaceTextureListener {
             override fun onSurfaceTextureAvailable(
-                surface: SurfaceTexture,
+                surface: SurfaceTexture, // surfaceTexture负责从图像流中获取帧数据作为OpenGL ES的纹理
                 width: Int,
                 height: Int
             ) {
                 HiLog.log(HiLogType.D, TAG,  "onSurfaceTextureAvailable")
-                val surfaceX = Surface(surface)
+                val surfaceX = Surface(surface) // 可以通过surface纹理对象构建surface对象
                 player.setSurface(surfaceX)
                 player.setDataSource(requireContext().assets.openFd("video.mp4"))
                 player.prepareAsync()

@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white"
+    tools:context=".fragment.SurfaceViewFragment">
+
+    <!--支持用3D渲染的View-->
+    <android.opengl.GLSurfaceView android:id="@+id/glSurfaceView"
+        android:layout_marginTop="16dp"
+        android:layout_gravity="center_horizontal"
+        android:layout_width="640dp"
+        android:visibility="gone"
+        android:layout_height="360dp"
+        />
+
+    <Button android:layout_gravity="center_horizontal|bottom"
+        android:padding="16dp"
+        android:id="@+id/playVideo"
+        android:text="利用MediaPlayer将视频数据渲染到SurfaceView"
+        android:layout_marginBottom="64dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"/>
+
+    <Button android:layout_gravity="center_horizontal|bottom"
+        android:id="@+id/canvas"
+        android:padding="16dp"
+        android:text="Canvas绘制"
+        android:layout_marginBottom="160dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"/>
+</FrameLayout>

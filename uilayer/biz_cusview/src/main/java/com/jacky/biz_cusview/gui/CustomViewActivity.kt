@@ -6,6 +6,7 @@ import androidx.fragment.app.Fragment
 import com.alibaba.android.arouter.facade.annotation.Route
 import com.jacky.biz_cusview.fragment.CoordinateSystemFragment
 import com.jacky.biz_cusview.fragment.CustomView2DFragment
+import com.jacky.biz_cusview.fragment.GLSurfaceViewFragment
 import com.jacky.biz_cusview.fragment.SurfaceViewFragment
 import com.jacky.biz_cusview.fragment.TextureViewFragment
 import com.jacky.bizcommon.route.RouterConstant
@@ -42,6 +43,7 @@ class CustomViewActivity : VerticalListActivity() {
             Pair("2D Canvas绘制自定义View", CustomView2DFragment()),
             Pair("SurfaceView 2DView演示", SurfaceViewFragment()),
             Pair("TextureView 2DView演示", TextureViewFragment()),
+            Pair("GLSurfaceView 3D渲染演示", GLSurfaceViewFragment()),
         )
     }
 
