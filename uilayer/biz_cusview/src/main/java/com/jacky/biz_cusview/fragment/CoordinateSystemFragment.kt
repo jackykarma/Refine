@@ -15,14 +15,15 @@ import com.jacky.biz_cusview.R
  * @since 2023/9/1
  * @version v1.0.00
  */
-class CordinateSystemFragment : Fragment() {
+class CoordinateSystemFragment : Fragment() {
 
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        val rootView = inflater.inflate(R.layout.layout_cordinate_system, container, false)
+        val rootView =
+            inflater.inflate(R.layout.layout_cordinate_system, container, false)
         return rootView
     }
 }

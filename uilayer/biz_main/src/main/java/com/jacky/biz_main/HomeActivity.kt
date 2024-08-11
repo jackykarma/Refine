@@ -25,12 +25,12 @@ class HomeActivity : VerticalListActivity() {
     private fun setListener() {
         listAdapter.itemClickListener = object : ItemClickListener {
             override fun onItemClick(view: View, position: Int) {
-                ARouter.getInstance().build(getListData()[position].second).navigation()
+                ARouter.getInstance().build(getListData()[position].second as String).navigation()
             }
         }
     }
 
-    override fun getListData(): MutableList<Pair<String, String>> {
+    override fun getListData(): MutableList<Pair<String, Any>> {
         return mutableListOf(
             Pair("自定义View业务组件", Page.CUSTOM_VIEW_ACTIVITY),
             Pair("Paging3演示业务组件", Page.PAGING3_ACTIVITY),

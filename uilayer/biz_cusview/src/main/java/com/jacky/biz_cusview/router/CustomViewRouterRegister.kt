@@ -4,9 +4,9 @@ import android.util.Log
 import com.alibaba.android.arouter.core.LogisticsCenter
 import com.alibaba.android.arouter.facade.enums.RouteType
 import com.alibaba.android.arouter.facade.model.RouteMeta
+import com.jacky.biz_cusview.gui.CustomViewActivity
 import com.jacky.bizcommon.route.ICustomViewRouterRegister
 import com.jacky.bizcommon.route.RouterConstant
-import com.jacky.biz_cusview.gui.CustomViewActivity
 
 /**
  * Copyright (C)  2022 Jacky夜雨

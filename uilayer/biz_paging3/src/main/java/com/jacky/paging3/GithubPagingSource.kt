@@ -4,7 +4,6 @@ import androidx.paging.PagingSource
 import androidx.paging.PagingState
 import com.jacky.paging3.entity.GitHubEntity
 import com.jacky.paging3.net.GithubService
-import java.lang.Exception
 
 /**
  * Copyright (C)  2022 Jacky夜雨

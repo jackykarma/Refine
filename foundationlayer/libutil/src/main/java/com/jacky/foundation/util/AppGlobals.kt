@@ -2,7 +2,6 @@ package com.jacky.foundation.util
 
 import android.annotation.SuppressLint
 import android.app.Application
-import java.lang.Exception
 
 /**
  * 这种方式获取全局的Application 是一种拓展思路。

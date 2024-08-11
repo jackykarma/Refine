@@ -6,9 +6,7 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
-import com.jacky.biz_task.vm.Page2ViewModel
 import com.jacky.biz_task.vm.Page3ViewModel
-import com.jacky.biz_taskmanager.databinding.LayoutPage1Binding
 import com.jacky.biz_taskmanager.databinding.LayoutPage3Binding
 
 /**

@@ -46,9 +46,24 @@ abstract class VerticalListActivity : AppCompatActivity() {
         inner class ViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView)
     }
 
-    abstract fun getListData(): MutableList<Pair<String, String>>
+    abstract fun getListData(): MutableList<Pair<String, Any>>
 
     interface ItemClickListener {
         fun onItemClick(view: View, position: Int)
+    }
+
+    @Deprecated("Deprecated in Java", ReplaceWith(
+        "super.onBackPressed()",
+        "com.jacky.bizcommon.ui.VerticalListActivity"
+    )
+    )
+    override fun onBackPressed() {
+        // 堆栈中Fragment的数量
+        val fragmentCountInBackStack = supportFragmentManager.backStackEntryCount
+        if (fragmentCountInBackStack > 0) {
+            supportFragmentManager.popBackStack()
+        } else {
+            finish()
+        }
     }
 }
