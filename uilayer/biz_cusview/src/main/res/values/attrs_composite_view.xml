@@ -1,0 +1,9 @@
+<resources>
+    <declare-styleable name="CompositeView">
+        <attr name="sampleText" format="string" />
+        <attr name="sampleSrc" format="reference" />
+        <attr name="sampleRadius" format="dimension" />
+        <attr name="sampleTextColor" format="color" />
+        <attr name="sampleTextSize" format="dimension" />
+    </declare-styleable>
+</resources>

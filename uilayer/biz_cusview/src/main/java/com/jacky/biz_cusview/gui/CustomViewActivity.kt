@@ -5,6 +5,8 @@ import android.view.View
 import androidx.fragment.app.Fragment
 import com.alibaba.android.arouter.facade.annotation.Route
 import com.jacky.biz_cusview.fragment.CoordinateSystemFragment
+import com.jacky.biz_cusview.fragment.CustomView2DFragment
+import com.jacky.biz_cusview.fragment.SurfaceViewFragment
 import com.jacky.bizcommon.route.RouterConstant
 import com.jacky.bizcommon.ui.VerticalListActivity
 import com.jacky.bizcommon.R as BaseR
@@ -35,7 +37,9 @@ class CustomViewActivity : VerticalListActivity() {
 
     override fun getListData(): MutableList<Pair<String, Any>> {
         return mutableListOf(
-            Pair("演示Android中坐标系统", CoordinateSystemFragment())
+            Pair("演示Android中坐标系统", CoordinateSystemFragment()),
+            Pair("2D Canvas绘制自定义View", CustomView2DFragment()),
+            Pair("SurfaceView 2DView演示", SurfaceViewFragment()),
         )
     }
 

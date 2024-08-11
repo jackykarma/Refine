@@ -9,7 +9,7 @@ plugins {
 subprojects {
     afterEvaluate {
         android {
-            resourcePrefix "${project.name}_"
+            // resourcePrefix "${project.name}_"
         }
     }
 }

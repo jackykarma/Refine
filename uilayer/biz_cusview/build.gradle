@@ -9,8 +9,9 @@ apply from: "$rootDir/gradle/dfmcommon.gradle"
 
 android {
     namespace 'com.jacky.biz_cusview'
-    resourcePrefix 'cusview'
+    // resourcePrefix 'cusview'
 }
 
 dependencies {
+    implementation project(":biz_common")
 }
