@@ -1,6 +1,8 @@
 package com.jacky.foundation.arch
 
 import android.util.Log
+import com.jacky.foundation.log.HiLog
+import com.jacky.foundation.log.HiLogType
 import java.util.ServiceLoader
 
 /**
@@ -21,12 +23,14 @@ object PluginRouterRegister : IPluginRouterRegister {
      *  会对应用启动性能有影响。
      */
     override fun register(routerClz: Class<out IRouterRegister>) {
+        val startTime = System.currentTimeMillis()
         val serviceLoader = ServiceLoader.load(routerClz)
+        HiLog.d(TAG, HiLogType.D, "[register] ServiceLoader.load costTime:${System.currentTimeMillis() - startTime}")
         var iRouter: IRouterRegister? = null
         kotlin.runCatching {
             iRouter = serviceLoader.iterator().next() as IRouterRegister
         }.onFailure {
-            Log.e(TAG, "dynamic registerRouter", it)
+            HiLog.e(TAG, HiLogType.D, "[register] onFailure", it)
         }.onSuccess {
             iRouter?.registerPage()
         }

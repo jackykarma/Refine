@@ -34,7 +34,8 @@ android {
             ':biz_lint',
             ':biz_paging3',
             ':biz_taskmanage',
-            ':biz_cusview'
+            ':biz_cusview',
+            ':biz_animation'
     ]
 }
 

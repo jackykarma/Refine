@@ -33,6 +33,7 @@ class HomeActivity : VerticalListActivity() {
     override fun getListData(): MutableList<Pair<String, Any>> {
         return mutableListOf(
             Pair("自定义View业务组件", Page.CUSTOM_VIEW_ACTIVITY),
+            Pair("动画业务组件", Page.ANIMATION_ACTIVITY),
             Pair("Paging3演示业务组件", Page.PAGING3_ACTIVITY),
             Pair("Lint静态检查演示业务组件", Page.LINT_ACTIVITY),
             Pair("任务调度与管理业务组件", Page.TASK_MANAGE_ACTIVITY)

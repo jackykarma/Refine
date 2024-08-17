@@ -6,6 +6,7 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.Button
 import androidx.appcompat.app.AppCompatActivity
+import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.jacky.bizcommon.R
@@ -65,5 +66,12 @@ abstract class VerticalListActivity : AppCompatActivity() {
         } else {
             finish()
         }
+    }
+
+    protected fun showFragment(fragment: Fragment) {
+        // 插件apk用的fg_container资源是来自biz_common，该组件属于base apk中
+        supportFragmentManager.beginTransaction()
+            .replace(R.id.fg_container, fragment).addToBackStack(fragment.javaClass.name)
+            .commit()
     }
 }

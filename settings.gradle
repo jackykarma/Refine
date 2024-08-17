@@ -23,11 +23,13 @@ include ':biz_main'
 include ':biz_paging3'
 include ':biz_taskmanage'
 include ':biz_cusview'
+include ':biz_animation'
 project(':biz_lint').projectDir = new File("./uilayer/biz_lint")
 project(':biz_paging3').projectDir = new File("./uilayer/biz_paging3")
 project(':biz_main').projectDir = new File("./uilayer/biz_main")
 project(':biz_taskmanage').projectDir = new File("./uilayer/biz_taskmanage")
 project(':biz_cusview').projectDir = new File("./uilayer/biz_cusview")
+project(':biz_animation').projectDir = new File("./uilayer/biz_animation")
 
 // 业务公共层：指定project与文件目录的对应关系
 include ':biz_common'

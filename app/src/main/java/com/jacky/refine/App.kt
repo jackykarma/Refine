@@ -4,6 +4,7 @@ import android.app.Application
 import android.content.Context
 import com.alibaba.android.arouter.launcher.ARouter
 import com.google.gson.GsonBuilder
+import com.jacky.bizcommon.route.IAnimationRouterRegister
 import com.jacky.bizcommon.route.ICustomViewRouterRegister
 import com.jacky.bizcommon.route.IHomeRouterRegister
 import com.jacky.bizcommon.route.IPaging3RouterRegister
@@ -27,9 +28,9 @@ class App : Application() {
 
     override fun attachBaseContext(base: Context?) {
         super.attachBaseContext(base)
+        initLog()
         initARouter()
         registerPluginRouter()
-        initLog()
     }
 
     /**
@@ -40,6 +41,7 @@ class App : Application() {
         PluginRouterRegister.register(IPaging3RouterRegister::class.java)
         PluginRouterRegister.register(ITaskRouterRegister::class.java)
         PluginRouterRegister.register(ICustomViewRouterRegister::class.java)
+        PluginRouterRegister.register(IAnimationRouterRegister::class.java)
     }
 
     /**

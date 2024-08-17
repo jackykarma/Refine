@@ -46,11 +46,4 @@ class CustomViewActivity : VerticalListActivity() {
             Pair("GLSurfaceView 3D渲染演示", GLSurfaceViewFragment()),
         )
     }
-
-    private fun showFragment(fragment: Fragment) {
-        // 插件apk用的fg_container资源是来自biz_common，该组件属于base apk中
-        supportFragmentManager.beginTransaction()
-            .replace(BaseR.id.fg_container, fragment).addToBackStack(fragment.javaClass.name)
-            .commit()
-    }
 }

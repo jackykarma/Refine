@@ -20,5 +20,6 @@ object RouterConstant {
         const val LINT_ACTIVITY = "/path/lintActivity"
         const val TASK_MANAGE_ACTIVITY = "/path/taskActivity"
         const val CUSTOM_VIEW_ACTIVITY = "/path/customViewActivity"
+        const val ANIMATION_ACTIVITY = "/path/animationActivity"
     }
 }
