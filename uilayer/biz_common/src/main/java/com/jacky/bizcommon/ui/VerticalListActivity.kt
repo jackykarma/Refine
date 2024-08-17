@@ -47,7 +47,7 @@ abstract class VerticalListActivity : AppCompatActivity() {
         inner class ViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView)
     }
 
-    abstract fun getListData(): MutableList<Pair<String, Any>>
+    abstract fun getListData(): MutableList<Pair<String, Any?>>
 
     interface ItemClickListener {
         fun onItemClick(view: View, position: Int)

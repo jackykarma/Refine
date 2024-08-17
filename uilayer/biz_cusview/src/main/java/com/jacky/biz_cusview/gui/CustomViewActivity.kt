@@ -37,7 +37,7 @@ class CustomViewActivity : VerticalListActivity() {
         }
     }
 
-    override fun getListData(): MutableList<Pair<String, Any>> {
+    override fun getListData(): MutableList<Pair<String, Any?>> {
         return mutableListOf(
             Pair("演示Android中坐标系统", CoordinateSystemFragment()),
             Pair("2D Canvas绘制自定义View", CustomView2DFragment()),

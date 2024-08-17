@@ -17,6 +17,20 @@ android {
             }
         }
     }
+    splits {
+
+    }
+    bundle {
+        language {
+            enableSplit = false
+        }
+        density {
+            enableSplit = true
+        }
+        abi {
+            enableSplit = true
+        }
+    }
     buildTypes {
         debug {
             minifyEnabled false

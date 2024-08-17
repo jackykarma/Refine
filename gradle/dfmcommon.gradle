@@ -22,9 +22,10 @@ android {
 }
 
 dependencies {
+    // 插件都需要依赖宿主模块
     implementation project(':app')
+    // 业务插件apk都需要依赖业务公共模块
     implementation project(':biz_common')
-    implementation project(':libarch')
 
     // ARouter::Compiler >>> No module name, for more information, look at gradle log.
     annotationProcessor "com.alibaba:arouter-compiler:${versions.arouter}"

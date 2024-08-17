@@ -1,5 +1,6 @@
 <resources>
     <string name="app_name">Refine</string>
+    <string name="title_dynamic_feature">DynamicFeature</string>
     <string name="title_biz_lint">bizLint</string>
     <string name="title_activity_task_manage">TaskManageActivity</string>
 </resources>

@@ -18,6 +18,8 @@ dependencies {
     api project(":libarch")
     api project(":libutil")
     api project(":libtask")
+    api project(":libui")
+    api project(":libuikit")
 
     // 通用的标准库
     api "com.google.code.gson:gson:${versions.gsonVersion}"

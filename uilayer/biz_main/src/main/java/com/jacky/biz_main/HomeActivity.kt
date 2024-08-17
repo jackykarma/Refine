@@ -25,12 +25,22 @@ class HomeActivity : VerticalListActivity() {
     private fun setListener() {
         listAdapter.itemClickListener = object : ItemClickListener {
             override fun onItemClick(view: View, position: Int) {
-                ARouter.getInstance().build(getListData()[position].second as String).navigation()
+                ARouter.getInstance()
+                    .build(getListData()[position].second as String)
+                    .navigation()
+                // 可用，但不建议
+                // overridePendingTransition(android.R.anim.fade_in, android.R.anim.fade_out)
             }
         }
     }
 
-    override fun getListData(): MutableList<Pair<String, Any>> {
+    override fun finish() {
+        super.finish()
+        // 可用，但不建议
+        // overridePendingTransition(android.R.anim.fade_in, android.R.anim.fade_out)
+    }
+
+    override fun getListData(): MutableList<Pair<String, Any?>> {
         return mutableListOf(
             Pair("自定义View业务组件", Page.CUSTOM_VIEW_ACTIVITY),
             Pair("动画业务组件", Page.ANIMATION_ACTIVITY),

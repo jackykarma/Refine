@@ -11,13 +11,11 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.view.animation.LinearInterpolator
 import android.widget.ImageView
 import com.jacky.biz_animation.R
 import com.jacky.bizcommon.ui.BaseFragment
 import com.jacky.foundation.log.HiLog
 import com.jacky.foundation.log.HiLogType
-import kotlin.math.abs
 
 class PropertyAnimatorFragment : BaseFragment() {
 
