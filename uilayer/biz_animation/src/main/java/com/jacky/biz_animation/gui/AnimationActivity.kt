@@ -14,6 +14,7 @@ import androidx.fragment.app.Fragment
 import com.alibaba.android.arouter.facade.annotation.Route
 import com.jacky.biz_animation.R
 import com.jacky.biz_animation.fragment.PropertyAnimatorFragment
+import com.jacky.biz_animation.fragment.ShareElementFragment
 import com.jacky.biz_animation.fragment.ViewAnimationFragment
 import com.jacky.bizcommon.route.RouterConstant
 import com.jacky.bizcommon.ui.VerticalListActivity
@@ -28,16 +29,6 @@ class AnimationActivity : VerticalListActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         HiLog.d(TAG, HiLogType.D, "onCreate")
-        shareView = layoutInflater.inflate(R.layout.anim_image, null)
-        val layoutParams = FrameLayout.LayoutParams(
-            ViewGroup.LayoutParams.WRAP_CONTENT,
-            ViewGroup.LayoutParams.WRAP_CONTENT
-        )
-        layoutParams.gravity = Gravity.CENTER_HORIZONTAL or Gravity.BOTTOM
-        layoutParams.bottomMargin = 72
-        shareView.transitionName = "shishi"
-        shareView.id = View.generateViewId()
-        addContentView(shareView, layoutParams)
         setListener()
     }
 
@@ -56,10 +47,24 @@ class AnimationActivity : VerticalListActivity() {
         HiLog.d(TAG, HiLogType.D, "onWindowFocusChanged hasFocus:$hasFocus")
     }
 
+    private fun dynamicAddShareView() {
+        shareView = layoutInflater.inflate(R.layout.anim_image, null)
+        val layoutParams = FrameLayout.LayoutParams(
+            ViewGroup.LayoutParams.WRAP_CONTENT,
+            ViewGroup.LayoutParams.WRAP_CONTENT
+        )
+        layoutParams.gravity = Gravity.CENTER_HORIZONTAL or Gravity.BOTTOM
+        layoutParams.bottomMargin = 72
+        shareView.transitionName = "shishi"
+        shareView.id = View.generateViewId()
+        addContentView(shareView, layoutParams)
+    }
+
     private fun setListener() {
         listAdapter.itemClickListener = object : ItemClickListener {
             override fun onItemClick(view: View, position: Int) {
                 if (getListData()[position].second == null) {
+                    dynamicAddShareView()
                     startActivity(
                         Intent(this@AnimationActivity, ShareElementActivity::class.java),
                         ActivityOptionsCompat.makeSceneTransitionAnimation(this@AnimationActivity, shareView, "shishi").toBundle())
@@ -74,7 +79,8 @@ class AnimationActivity : VerticalListActivity() {
         return mutableListOf(
             Pair("View动画演示", ViewAnimationFragment()),
             Pair("Property动画演示", PropertyAnimatorFragment()),
-            Pair("演示Activity过度动画+共享元素", null)
+            Pair("演示Activity过度动画+共享元素", null),
+            Pair("演示Fragment过度动画+共享元素", ShareElementFragment())
         )
     }
 

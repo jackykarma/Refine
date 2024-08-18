@@ -37,7 +37,7 @@ class PropertyAnimatorFragment : BaseFragment() {
             xixi = it.findViewById(R.id.xixi)
             shishi = it.findViewById(R.id.shsihi)
             shishi.setImageResource(R.drawable.image1)
-            xixi.setImageResource(R.drawable.image6)
+            xixi.setImageResource(R.drawable.image3)
 
             // animator set
             // playXixiAnimation()

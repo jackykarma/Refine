@@ -7,6 +7,7 @@ import android.view.ViewGroup
 import android.widget.Button
 import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
+import androidx.fragment.app.FragmentTransaction
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.jacky.bizcommon.R
@@ -72,6 +73,7 @@ abstract class VerticalListActivity : AppCompatActivity() {
         // 插件apk用的fg_container资源是来自biz_common，该组件属于base apk中
         supportFragmentManager.beginTransaction()
             .replace(R.id.fg_container, fragment).addToBackStack(fragment.javaClass.name)
+            .setTransition(FragmentTransaction.TRANSIT_FRAGMENT_OPEN) // onCreateAnimation/onCreateAnimator动画接收的transit参数
             .commit()
     }
 }
