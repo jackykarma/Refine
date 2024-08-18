@@ -23,7 +23,7 @@ class CoordinateSystemFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
         val rootView =
-            inflater.inflate(R.layout.layout_cordinate_system, container, false)
+            inflater.inflate(R.layout.fragment_cordinate_system, container, false)
         return rootView
     }
 }

@@ -10,6 +10,11 @@ apply from: "$rootDir/gradle/dfmcommon.gradle"
 android {
     namespace 'com.jacky.biz_cusview'
     // resourcePrefix 'cusview'
+    // externalNativeBuild {
+    //     cmake {
+    //         // path "src/main/cpp/CMakeLists.txt"
+    //     }
+    // }
 }
 
 dependencies {

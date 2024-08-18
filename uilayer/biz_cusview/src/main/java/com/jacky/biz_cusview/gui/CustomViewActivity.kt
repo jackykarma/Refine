@@ -11,7 +11,6 @@ import com.jacky.biz_cusview.fragment.SurfaceViewFragment
 import com.jacky.biz_cusview.fragment.TextureViewFragment
 import com.jacky.bizcommon.route.RouterConstant
 import com.jacky.bizcommon.ui.VerticalListActivity
-import com.jacky.bizcommon.R as BaseR
 
 /**
  * Copyright (C)  2022 Jacky夜雨
@@ -24,6 +23,8 @@ import com.jacky.bizcommon.R as BaseR
 @Route(group = RouterConstant.Page.GROUP_NAME, path = RouterConstant.Page.CUSTOM_VIEW_ACTIVITY)
 class CustomViewActivity : VerticalListActivity() {
 
+    private var currentFragment:Fragment? = null
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setListener()
@@ -32,7 +33,10 @@ class CustomViewActivity : VerticalListActivity() {
     private fun setListener() {
         listAdapter.itemClickListener = object : ItemClickListener {
             override fun onItemClick(view: View, position: Int) {
-                showFragment(getListData()[position].second as Fragment)
+                currentFragment = getListData()[position].second as Fragment
+                currentFragment?.let {
+                    showFragment(it)
+                }
             }
         }
     }

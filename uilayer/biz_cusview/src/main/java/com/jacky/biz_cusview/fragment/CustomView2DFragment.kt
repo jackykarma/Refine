@@ -18,7 +18,7 @@ class CustomView2DFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
         val rootView =
-            LayoutInflater.from(context).inflate(R.layout.layout_2d_custom_view, container, false)
+            LayoutInflater.from(context).inflate(R.layout.fragment_2d_custom_view, container, false)
         return rootView
     }
 }

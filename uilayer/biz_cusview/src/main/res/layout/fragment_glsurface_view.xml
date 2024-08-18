@@ -4,6 +4,8 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/white"
+    android:focusable="true"
+    android:clickable="true"
     tools:context=".fragment.SurfaceViewFragment">
 
     <!--支持用3D渲染的View-->
