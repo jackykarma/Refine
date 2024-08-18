@@ -51,7 +51,7 @@ class ShareElementFragment : BaseFragment() {
                 targetFragment.sharedElementEnterTransition = TransitionInflater.from(context).inflateTransition(R.transition.change_bounds)
                 // 退出目标fragment的动画
                 targetFragment.sharedElementReturnTransition = TransitionInflater.from(context).inflateTransition(R.transition.change_bounds)
-                requireFragmentManager().beginTransaction()
+                parentFragmentManager.beginTransaction()
                     // 共享元素转场动画，必须使用replace
                     .replace(com.jacky.bizcommon.R.id.fg_container, targetFragment)
                     .addSharedElement(shareView, "xixi")
